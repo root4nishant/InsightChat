@@ -1,4 +1,4 @@
-import Sidebar from "@/components/custom/Sidebar";
+// import Sidebar from "@/components/custom/Sidebar";
 import { UserButton } from "@clerk/nextjs";
 
 export default function DashboardLayout({
@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       {/* Main Content */}
       <main className="flex-1 p-6">{children}</main>

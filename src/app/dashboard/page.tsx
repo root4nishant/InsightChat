@@ -4,12 +4,33 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { sendSessionIdToExtension } from "@/utils/sendSessionToExtension";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { useRouter } from "next/navigation";
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444"];
 
 export default function DashboardPage() {
+  const router = useRouter();
   const { sessionId, isSignedIn } = useAuth();
   const [analysis, setAnalysis] = useState<any>(null);
+  const [userInfo, setUserInfo] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      if (!sessionId) return;
+
+      const res = await fetch("http://127.0.0.1:8000/user_info", {
+        headers: {
+          "Content-Type": "application/json",
+          "X-Clerk-Session-Id": sessionId,
+        },
+      });
+
+      const data = await res.json();
+      setUserInfo(data);
+    };
+
+    fetchUserInfo();
+  }, [sessionId]);
 
   useEffect(() => {
     if (!isSignedIn || !sessionId) return;
@@ -29,6 +50,7 @@ export default function DashboardPage() {
         });
         const data = await res.json();
         if (data.analysis) {
+          console.log(data.analysis);
           setAnalysis(data.analysis);
         } else {
           setAnalysis(null);
@@ -41,60 +63,91 @@ export default function DashboardPage() {
     fetchAnalysis();
   }, [sessionId]);
 
+  useEffect(() => {
+    if (userInfo?.tokens < 5) {
+      router.push("/plans");
+    }
+  }, [userInfo, router]);
+
+  if (!analysis || Object.keys(analysis || {}).length === 0) {
+    return (
+      <p className="text-center text-gray-500 mt-10">
+        {" "}
+        {typeof window !== "undefined" && userInfo?.tokens !== undefined && (
+          <span>Token Balance: {userInfo.tokens}</span>
+        )}{" "}
+        <br />
+        No analysis available.
+      </p>
+    );
+  }
+
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold mb-6">📊 AI Chat Analysis</h1>
+    <div className="max-w-4xl mx-auto py-10 px-4 text-gray-800">
+      <h1 className="text-4xl font-bold mb-4 text-center">
+        📊 AI Chat Analysis
+      </h1>
 
-      {!analysis && <p>Loading or no analysis found yet.</p>}
+      {typeof window !== "undefined" && userInfo?.tokens !== undefined && (
+        <span>🪙 Tokens Left: {userInfo.tokens}</span>
+      )}
 
-      {analysis && (
+      {!analysis ? (
+        <p className="text-center text-gray-500 mt-10">
+          Loading or no analysis found yet.
+        </p>
+      ) : (
         <>
-          <section className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">🧠 Summary</h2>
-            <p className="bg-white p-4 rounded shadow text-gray-700">
-              {analysis.summary}
-            </p>
+          {/* Summary Section */}
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-3">🧠 Summary</h2>
+            <div className="bg-white p-5 rounded-xl shadow-md">
+              <p className="leading-relaxed">{analysis?.summary}</p>
+            </div>
           </section>
 
-          <section className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">
-              📈 Sentiment Distribution
-            </h2>
-            <PieChart width={300} height={250}>
-              <Pie
-                dataKey="value"
-                data={Object.entries(analysis.sentiment_counts).map(
-                  ([key, value]) => ({
-                    name: key,
-                    value,
-                  })
-                )}
-                cx="50%"
-                cy="50%"
-                outerRadius={80}
-                label
-              >
-                {Object.entries(analysis.sentiment_counts).map(
-                  (entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  )
-                )}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </section>
-
-          <section className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">🏷️ Keywords</h2>
-            <div className="flex flex-wrap gap-2">
-              {analysis.keywords.map((kw: string, i: number) => (
+          {/* Sentiment Chart */}
+          {analysis?.sentiment_counts &&
+            analysis?.sentiment_counts.length > 0 && (
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold mb-3">
+                  📈 Sentiment Distribution
+                </h2>
+                <div className="bg-white p-5 rounded-xl shadow-md flex justify-center">
+                  <PieChart width={320} height={260}>
+                    <Pie
+                      dataKey="value"
+                      data={Object.entries(
+                        analysis?.sentiment_counts || {}
+                      ).map(([key, value]) => ({ name: key, value }))}
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={90}
+                      label
+                    >
+                      {Object.entries(analysis?.sentiment_counts || {}).map(
+                        (entry, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={COLORS[index % COLORS.length]}
+                          />
+                        )
+                      )}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                </div>
+              </section>
+            )}
+          {/* Keywords Section */}
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-3">🏷️ Keywords</h2>
+            <div className="flex flex-wrap gap-3">
+              {(analysis?.keywords || []).map((kw: string, i: number) => (
                 <span
                   key={i}
-                  className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm"
+                  className="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium"
                 >
                   #{kw}
                 </span>
@@ -102,38 +155,43 @@ export default function DashboardPage() {
             </div>
           </section>
 
-          <section className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">
+          {/* Recommended Actions */}
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-3">
               ✅ Recommended Actions
             </h2>
-            <ul className="list-disc list-inside">
-              {analysis.recommended_actions.map((action: string, i: number) => (
-                <li key={i}>{action}</li>
-              ))}
+            <ul className="list-disc list-inside space-y-2 bg-white p-5 rounded-xl shadow-md">
+              {(analysis?.recommended_actions || []).map(
+                (action: string, i: number) => (
+                  <li key={i}>{action}</li>
+                )
+              )}
             </ul>
           </section>
 
+          {/* Insights */}
           <section>
-            <h2 className="text-xl font-semibold mb-2">🔍 Insights</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {analysis.insights.map((insight: any, i: number) => (
-                <div key={i} className="border p-4 rounded shadow bg-white">
+            <h2 className="text-2xl font-semibold mb-3">🔍 Insights</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {(analysis?.insights || []).map((insight: any, i: number) => (
+                <div key={i} className="border p-5 rounded-xl shadow bg-white">
                   <p>
-                    <strong>Label:</strong> {insight.label}
+                    <strong>Label:</strong> {insight?.label}
                   </p>
                   <p>
-                    <strong>Type:</strong> {insight.type}
+                    <strong>Type:</strong> {insight?.type}
                   </p>
                   <p>
-                    <strong>Sentiment:</strong> {insight.sentiment}
+                    <strong>Sentiment:</strong> {insight?.sentiment}
                   </p>
                 </div>
               ))}
             </div>
           </section>
 
-          <div className="mt-6">
-            <button className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+          {/* More Insight CTA */}
+          <div className="mt-10 text-center">
+            <button className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition duration-200">
               More Insight 🔮
             </button>
           </div>
