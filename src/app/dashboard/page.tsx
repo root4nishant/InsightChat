@@ -20,12 +20,15 @@ export default function DashboardPage() {
     const fetchUserInfo = async () => {
       if (!sessionId) return;
 
-      const res = await fetch(`${baseUrl}/user_info`, {
-        headers: {
-          "Content-Type": "application/json",
-          "X-Clerk-Session-Id": sessionId,
-        },
-      });
+      const res = await fetch(
+        `https://insight-chat-root.vercel.app/user_info`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "X-Clerk-Session-Id": sessionId,
+          },
+        }
+      );
 
       const data = await res.json();
       setUserInfo(data);
