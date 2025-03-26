@@ -21,7 +21,7 @@ export default function DashboardPage() {
       if (!sessionId) return;
 
       const res = await fetch(
-        `https://insight-chat-root.vercel.app/user_info`,
+        `${process.env.NEXT_PUBLIC_API_URL}/user_info`,
         {
           headers: {
             "Content-Type": "application/json",
