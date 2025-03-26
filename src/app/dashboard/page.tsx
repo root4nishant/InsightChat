@@ -5,10 +5,13 @@ import { useAuth } from "@clerk/nextjs";
 import { sendSessionIdToExtension } from "@/utils/sendSessionToExtension";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useRouter } from "next/navigation";
+import { Spinner } from "./Loader";
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444"];
 
 export default function DashboardPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const router = useRouter();
   const { sessionId, isSignedIn } = useAuth();
   const [analysis, setAnalysis] = useState<any>(null);
@@ -70,6 +73,23 @@ export default function DashboardPage() {
       router.push("/plans");
     }
   }, [userInfo, router]);
+
+
+  useEffect(() => {
+    if (analysis) {
+      setIsLoading(false);
+    }
+  }, [analysis]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Spinner />
+      </div>
+    );
+  }
+
+  
 
   if (!analysis || Object.keys(analysis || {}).length === 0) {
     return (
