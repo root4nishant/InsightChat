@@ -14,11 +14,13 @@ export default function DashboardPage() {
   const [analysis, setAnalysis] = useState<any>(null);
   const [userInfo, setUserInfo] = useState<any>(null);
 
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     const fetchUserInfo = async () => {
       if (!sessionId) return;
 
-      const res = await fetch("http://127.0.0.1:8000/user_info", {
+      const res = await fetch(`${baseUrl}/user_info`, {
         headers: {
           "Content-Type": "application/json",
           "X-Clerk-Session-Id": sessionId,
@@ -41,7 +43,7 @@ export default function DashboardPage() {
     const fetchAnalysis = async () => {
       if (!sessionId) return;
       try {
-        const res = await fetch("http://127.0.0.1:8000/get_analysis", {
+        const res = await fetch(`${baseUrl}/get_analysis`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -48,7 +48,7 @@ export default function PlansPage() {
       name: "Insight Chat",
       description: `Purchase ${plan.tokens} tokens`,
       handler: function (response: any) {
-        fetch("http://127.0.0.1:8000/confirm_payment", {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/confirm_payment`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
