@@ -40,6 +40,7 @@ export default function DashboardPage() {
   useEffect(() => {
     if (!isSignedIn || !sessionId) return;
     sendSessionIdToExtension(sessionId);
+    console.log("send", sessionId);
   }, [sessionId, isSignedIn]);
 
   useEffect(() => {
@@ -74,7 +75,6 @@ export default function DashboardPage() {
     }
   }, [userInfo, router]);
 
-
   useEffect(() => {
     if (analysis) {
       setIsLoading(false);
@@ -88,8 +88,6 @@ export default function DashboardPage() {
       </div>
     );
   }
-
-  
 
   if (!analysis || Object.keys(analysis || {}).length === 0) {
     return (
