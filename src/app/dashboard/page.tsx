@@ -6,6 +6,7 @@ import { sendSessionIdToExtension } from "@/utils/sendSessionToExtension";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useRouter } from "next/navigation";
 import { Spinner } from "./Loader";
+import Link from "next/link";
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444"];
 
@@ -98,6 +99,10 @@ export default function DashboardPage() {
         )}{" "}
         <br />
         No analysis available.
+        <Link href="/docs" className="font-bold text-blue-600">
+          {" "}
+          Documentation
+        </Link>
       </p>
     );
   }
