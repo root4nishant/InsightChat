@@ -21,9 +21,7 @@ export default function PlansPage() {
 
   const loadRazorpayScript = (): Promise<boolean> => {
     return new Promise((resolve) => {
-      if (document.getElementById("razorpay-script")) {
-        return resolve(true); // already loaded
-      }
+      if (document.getElementById("razorpay-script")) return resolve(true);
 
       const script = document.createElement("script");
       script.id = "razorpay-script";
@@ -42,8 +40,8 @@ export default function PlansPage() {
     }
 
     const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY, // ✅ Replace with your real Razorpay TEST key
-      amount: plan.price * 100, // in paise
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
+      amount: plan.price * 100,
       currency: "INR",
       name: "Insight Chat",
       description: `Purchase ${plan.tokens} tokens`,
@@ -55,7 +53,7 @@ export default function PlansPage() {
             payment_id: response.razorpay_payment_id,
             plan: plan.name,
             tokens: plan.tokens,
-            user_id: userId, // from Clerk
+            user_id: userId,
           }),
         })
           .then((res) => res.json())
@@ -75,22 +73,27 @@ export default function PlansPage() {
   };
 
   return (
-    <div className="p-10 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Choose a Plan</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16 px-4 flex flex-col items-center">
+      <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 mb-12 text-center">
+        Choose a Plan
+      </h1>
+
+      <div className="grid gap-10 md:grid-cols-3 w-full max-w-6xl">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className="border p-6 rounded shadow text-center bg-white"
+            className="bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-xl hover:scale-105 transform transition duration-300 border border-gray-200 text-center"
           >
-            <h2 className="text-xl font-semibold">{plan.name}</h2>
-            <p className="my-2 text-lg font-medium text-gray-700">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              {plan.name}
+            </h2>
+            <p className="text-3xl font-extrabold text-indigo-600 mb-2">
               ₹{plan.price}
             </p>
-            <p className="text-gray-500">{plan.tokens} Tokens</p>
+            <p className="text-gray-500 text-sm mb-6">{plan.tokens} Tokens</p>
             <button
-              className="bg-indigo-600 text-white px-4 py-2 mt-4 rounded hover:bg-indigo-700"
               onClick={() => handlePayment(plan)}
+              className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold hover:scale-105 transition shadow-lg"
             >
               Buy Now
             </button>
