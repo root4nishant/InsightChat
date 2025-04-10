@@ -90,7 +90,7 @@ export default function DashboardPage() {
   }, [sessionId]);
 
   useEffect(() => {
-    if (userInfo?.tokens < 5) router.push("/plans");
+    if (userInfo && userInfo?.tokens < 5) router.push("/plans");
   }, [userInfo]);
 
   useEffect(() => {
@@ -108,7 +108,9 @@ export default function DashboardPage() {
   if (!analysis || Object.keys(analysis).length === 0) {
     return (
       <div className="text-center text-gray-500 mt-10">
-        <span>Token Balance: {userInfo?.tokens}</span>
+        {userInfo?.tokens !== undefined && (
+          <span>Token Balance: {userInfo?.tokens}</span>
+        )}
         <br />
         No analysis available.
         <Link href="/docs" className="font-bold text-blue-600">
@@ -227,7 +229,7 @@ export default function DashboardPage() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="value" fill="#6366F1" className="hover-none"/>
+            <Bar dataKey="value" fill="#6366F1" className="hover-none" />
           </BarChart>
         </div>
 
