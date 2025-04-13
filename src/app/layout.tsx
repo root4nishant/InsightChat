@@ -6,7 +6,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
-  title: "AI Agents for eCommerce Growth",
+  title: "AI Agents for Whatsapp Insight",
   description:
     "Empowering eCommerce brands with AI-driven automation for customer engagement, support, and growth. AI agents that transform how brands sell and interact with customers.",
 };

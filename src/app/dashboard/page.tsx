@@ -25,7 +25,7 @@ const COLORS = ["#10B981", "#FBBF24", "#EF4444"];
 
 export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
-  const [mlInsights, setMlInsights] = useState<any>(null);
+  const [mlInsights, ] = useState<any>(null);
   const [analysis, setAnalysis] = useState<any>(null);
   const [userInfo, setUserInfo] = useState<any>(null);
 
@@ -33,20 +33,20 @@ export default function DashboardPage() {
   const router = useRouter();
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const fetchMLInsights = async () => {
-    try {
-      const res = await fetch(`${baseUrl}/ml_analysis`, {
-        headers: {
-          "Content-Type": "application/json",
-          "X-Clerk-Session-Id": sessionId ?? "",
-        },
-      });
-      const data = await res.json();
-      setMlInsights(data);
-    } catch (error) {
-      console.error("Error fetching ML insights:", error);
-    }
-  };
+  // const fetchMLInsights = async () => {
+  //   try {
+  //     const res = await fetch(`${baseUrl}/ml_analysis`, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "X-Clerk-Session-Id": sessionId ?? "",
+  //       },
+  //     });
+  //     const data = await res.json();
+  //     setMlInsights(data);
+  //   } catch (error) {
+  //     console.error("Error fetching ML insights:", error);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -67,6 +67,7 @@ export default function DashboardPage() {
     if (!isSignedIn || !sessionId) return;
     sendSessionIdToExtension(sessionId);
   }, [sessionId, isSignedIn]);
+
 
   useEffect(() => {
     const fetchAnalysis = async () => {
@@ -91,7 +92,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (userInfo && userInfo?.tokens < 5) router.push("/plans");
-  }, [userInfo]);
+  }, [router, userInfo]);
 
   useEffect(() => {
     if (analysis) setIsLoading(false);
@@ -292,12 +293,12 @@ export default function DashboardPage() {
       </section>
 
       <div className="text-center">
-        <button
+        {/* <button
           className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:scale-105 transition duration-300"
           onClick={fetchMLInsights}
         >
           🔍 Generate More Insight
-        </button>
+        </button> */}
       </div>
     </div>
   );
