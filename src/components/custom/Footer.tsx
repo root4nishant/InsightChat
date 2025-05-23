@@ -48,21 +48,21 @@ const Footer: React.FC = () => {
           </div>
         </div>
         {/* Divider Line */}
-        <div
+        {/* <div
           className="w-[80%] sm:w-[70%] lg:w-[50%] mx-auto"
           style={{
             height: "1px",
             backgroundColor: "#93905C",
           }}
-        ></div>
+        ></div> */}
         {/* Address Section */}
-        <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-2 text-gray-800 text-center space-y-2 sm:space-y-0">
+        {/* <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-2 text-gray-800 text-center space-y-2 sm:space-y-0">
           <MapPin className="w-6 h-6" />
           <p className="text-sm lg:text-base sm:text-base text-[12px] sm:leading-normal leading-tight">
             No 198, 2nd Floor, CMH Rd Stage 2, Indiranagar, Bangalore, Karnataka
             560038
           </p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

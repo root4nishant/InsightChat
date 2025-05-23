@@ -23,7 +23,7 @@ export default function Navbar() {
     <div className="w-full fixed top-0 z-20 bg-transparent font-primary">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-20 mt-4">
         <header className="bg-[#1a1a1a] w-full rounded-md shadow-lg shadow-[#707070] py-4 px-6 flex items-center justify-between">
-          <div className="flex items-center gap-12">
+          <div className="flex items-center">
             <Link href="/" className="text-white font-semibold text-xl">
               <Image
                 loading="lazy"
@@ -39,23 +39,18 @@ export default function Navbar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
+              {/* <Link
                 href="#"
                 className="text-gray-300 hover:text-white text-md font-bold hidden lg:block transition-colors duration-300"
               >
                 Products
-              </Link>
+              </Link> */}
               <ProductsDropdown
                 isOpen={isProductsOpen}
                 closeDrawer={handleMouseLeave}
               />
             </div>
-            <Link
-              href="/pricing"
-              className="text-gray-300 hover:text-white text-md font-bold hidden lg:block transition-colors duration-300"
-            >
-              Pricing
-            </Link>
+
             {/* <Link
               href="/blogs"
               className="text-gray-300 hover:text-white text-md font-bold hidden lg:block transition-colors duration-300"
@@ -64,14 +59,24 @@ export default function Navbar() {
             </Link> */}
           </div>
           <nav className="hidden lg:flex items-center gap-6">
+            <Link
+              href="/pricing"
+              className="text-gray-300 hover:text-white text-md font-bold hidden lg:block transition-colors duration-300"
+            >
+              Pricing
+            </Link>
             <a
-              href="https://tabi.columsprout.ai/"
+              href="/sign-in"
               className="text-gray-300 hover:text-white text-md font-bold"
               target="_blank"
             >
               Try Tabi
             </a>
-            <a href="https://calendly.com/meghav-columsprout" target="_blank">
+
+            <a
+              href="https://calendly.com/srivastavanishant/30min"
+              target="_blank"
+            >
               <Button
                 variant="default"
                 className="text-lg bg-transparent font-bold text-black rounded-sm border-white/20 hover:bg-white bg-secondary py-5 px-4"

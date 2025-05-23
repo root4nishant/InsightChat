@@ -63,18 +63,18 @@ const HeroSection: FC<HeroSectionProps> = ({
             <div className="flex flex-col gap-1">
               {tagText && <Tag text={tagText} />}
               <div className="flex flex-col gap-2">
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-[0.4px] text-gray-900 font-primary">
+                {/* <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.4px] text-gray-900 font-primary">
                   {title}
-                </h1>
-                <div className="flex gap-2 items-center text-4xl md:text-5xl lg:text-7xl font-bold tracking-[0.4px] justify-center">
-                  <span className="text-primary-dark font-primary">
+                </h1> */}
+                <div className="flex gap-2 items-center text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.4px] justify-center">
+                  <span className="h-12 lg:h-32 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-primary">
                     {highlightText}
                   </span>
-                  {highlightIcon && (
+                  {/* {highlightIcon && (
                     <span className="text-primary-dark flex items-center  ">
                       {highlightIcon}
                     </span>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
@@ -83,7 +83,7 @@ const HeroSection: FC<HeroSectionProps> = ({
                 {description}
               </p>
               <a href={buttonLink || "#"}>
-                <Button className=" bg-primary-dark hover:bg-black text-white hover:text-white font-semibold py-6 rounded-md">
+                <Button className=" bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-black text-white hover:text-white font-semibold py-6 rounded-md">
                   {buttonText}
                 </Button>
               </a>
