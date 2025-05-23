@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Sparkle } from "lucide-react";
 import Navbar from "@/components/custom/nav";
 import Footer from "@/components/custom/Footer";
+import VideoWithMessages from "../tabi/components/Video";
 // import BlogSection from "@/components/custom/Blog";
 
 // Dynamically import components
@@ -28,6 +29,9 @@ export default function Home() {
             buttonLink="https://calendly.com/srivastavanishant/30min"
           />
         </Suspense>
+         <Suspense fallback={<div>Loading Video Section...</div>}>
+                <VideoWithMessages />
+              </Suspense>
 
         <Suspense fallback={<div>Loading AI Team Section...</div>}>
           <AITeamSection />

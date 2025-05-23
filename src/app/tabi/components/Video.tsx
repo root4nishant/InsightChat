@@ -83,7 +83,7 @@ const VideoWithMessages = () => {
 
         {showAnimation && (
           <div className="absolute lg:top-6 top-2 lg:left-6 left-2 flex flex-col gap-2">
-            <AnimatedText />
+            {/* <AnimatedText /> */}
             <Animation />
           </div>
         )}

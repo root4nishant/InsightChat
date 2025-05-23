@@ -150,7 +150,7 @@ export default function AnimationFlow() {
             <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
               <IconUpload />
               <span className="lg:text-sm md:text-[10px] text-[6px] text-black font-bold">
-                Upload your data
+                Extract Chat from Chrome Extension
               </span>
             </div>
             {/* Progress bar that starts at t=1 and finishes by t=2 */}
@@ -185,7 +185,7 @@ export default function AnimationFlow() {
             <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
               <IoSparkles className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-primary-dark" />
               <span className="lg:text-sm md:text-[10px] text-[6px] text-black font-bold">
-                Experiment with your prompt
+                Processing with AI Models
               </span>
             </div>
             {/* <p className="px-4 lg:text-xs text-[6px] text-gray-600">
@@ -240,40 +240,40 @@ export default function AnimationFlow() {
           </motion.div>
         );
 
-      case 4:
-        return (
-          <motion.div
-            key="export-card"
-            layout
-            custom={80}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={cardVariants}
-            className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
-          >
-            <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
-              <FaDownload className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-primary-dark" />
-              <span className="lg:text-sm md:text-[10px] text-[6px] text-black font-bold">
-                Export instantly
-              </span>
-            </div>
-            {/* A “completed” progress bar */}
-            <motion.div
-              className="lg:h-2 h-1 w-full overflow-hidden rounded-full bg-zinc-800"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.2 }}
-            >
-              <motion.div
-                className="h-full bg-primary-dark"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 1, duration: 1 }}
-              />
-            </motion.div>
-          </motion.div>
-        );
+      // case 4:
+      //   return (
+      //     <motion.div
+      //       key="export-card"
+      //       layout
+      //       custom={80}
+      //       initial="initial"
+      //       animate="animate"
+      //       exit="exit"
+      //       variants={cardVariants}
+      //       className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
+      //     >
+      //       <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
+      //         <FaDownload className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-primary-dark" />
+      //         <span className="lg:text-sm md:text-[10px] text-[6px] text-black font-bold">
+      //           Export instantly
+      //         </span>
+      //       </div>
+      //       {/* A “completed” progress bar */}
+      //       <motion.div
+      //         className="lg:h-2 h-1 w-full overflow-hidden rounded-full bg-zinc-800"
+      //         initial={{ opacity: 0 }}
+      //         animate={{ opacity: 1 }}
+      //         transition={{ delay: 1, duration: 0.2 }}
+      //       >
+      //         <motion.div
+      //           className="h-full bg-primary-dark"
+      //           initial={{ width: "0%" }}
+      //           animate={{ width: "100%" }}
+      //           transition={{ delay: 1, duration: 1 }}
+      //         />
+      //       </motion.div>
+      //     </motion.div>
+      //   );
 
       case 5:
         return (
