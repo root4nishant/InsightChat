@@ -32,8 +32,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" type="image/png" href="/favicon.png" />
+          <link rel="icon" href="/logo_ico.ico" sizes="any" />
+          <link rel="icon" type="image/png" href="/logo_new.png" />
         </head>
         <body
           className={`${primaryFont.variable} ${secondaryFont.variable} antialiased min-h-screen flex flex-col`}

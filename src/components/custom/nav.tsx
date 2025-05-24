@@ -22,17 +22,23 @@ export default function Navbar() {
   return (
     <div className="w-full fixed top-0 z-20 bg-transparent font-primary">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-20 mt-4">
-        <header className="bg-[#1a1a1a] w-full rounded-md shadow-lg shadow-[#707070] py-4 px-6 flex items-center justify-between">
+        <header className="bg-[#1a1a1a] w-full rounded-md shadow-lg shadow-[#707070] py-3 px-4 flex items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="text-white font-semibold text-xl">
+            <Link
+              href="/"
+              className="text-white font-semibold  flex items-center justify-center lg:gap-5 gap-3"
+            >
               <Image
                 loading="lazy"
-                src="/logo.png"
+                src="/logo_new.png"
                 alt="Logo"
-                className="md:w-80 w-40 lg:w-60"
+                className=" w-8 lg:w-10"
                 width={200}
                 height={40}
               />
+              <div className="text-gray-300 font-semibold lg:text-2xl md:text-lg text-md">
+                InsightChat
+              </div>
             </Link>
             <div
               className="relative"
@@ -60,18 +66,18 @@ export default function Navbar() {
           </div>
           <nav className="hidden lg:flex items-center gap-6">
             <Link
-              href="/pricing"
+              href="/plans"
               className="text-gray-300 hover:text-white text-md font-bold hidden lg:block transition-colors duration-300"
             >
               Pricing
             </Link>
-            <a
+            {/* <a
               href="/sign-in"
               className="text-gray-300 hover:text-white text-md font-bold"
               target="_blank"
             >
               Try Tabi
-            </a>
+            </a> */}
 
             <a
               href="https://calendly.com/srivastavanishant/30min"
@@ -79,7 +85,7 @@ export default function Navbar() {
             >
               <Button
                 variant="default"
-                className="text-lg bg-transparent font-bold text-black rounded-sm border-white/20 hover:bg-white bg-secondary py-5 px-4"
+                className="text-lg bg-transparent font-bold text-black rounded-sm border-white/20 hover:bg-white bg-gray-300 py-5 px-4"
               >
                 Contact Us
               </Button>

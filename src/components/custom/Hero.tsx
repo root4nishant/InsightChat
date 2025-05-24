@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react";
 import { Button } from "@/components/custom/reusables/button";
+import { FC, ReactNode } from "react";
 import Section from "./reusables/Section";
 import Tag from "./Tag";
 
@@ -67,7 +67,7 @@ const HeroSection: FC<HeroSectionProps> = ({
                   {title}
                 </h1> */}
                 <div className="flex gap-2 items-center text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.4px] justify-center">
-                  <span className="h-12 lg:h-32 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-primary">
+                  <span className="h-32 lg:h-32 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-primary">
                     {highlightText}
                   </span>
                   {/* {highlightIcon && (

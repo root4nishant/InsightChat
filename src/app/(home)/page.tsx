@@ -25,8 +25,9 @@ export default function Home() {
             highlightText="Your AI Powered Chat Analysis Assistant"
             highlightIcon={<Sparkle />}
             description="Unleash the power of AI to automate repetitive tasks, enhance your storefront experience, personalize customer interactions, and drive higher sales conversions effortlessly"
-            buttonText="Book Demo"
-            buttonLink="https://calendly.com/srivastavanishant/30min"
+            buttonText="Try Demo"
+            // buttonLink="https://calendly.com/srivastavanishant/30min"
+            buttonLink="/dashboard"
           />
         </Suspense>
          <Suspense fallback={<div>Loading Video Section...</div>}>
