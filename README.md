@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# InsightChat
 
-## Getting Started
+InsightChat is an AI-powered chat insight platform that helps users analyze conversational data in real-time, uncover sentiment trends, tag topics, and generate summaries from chats. This frontend connects to a backend powered by Redis, workers, and LLMs like Gemini/OpenAI.
 
-First, run the development server:
+## 🧠 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Real-time chat analysis dashboard
+- Chrome extension integration for live data extraction
+- Session history with filters and detailed insights
+- Sentiment analysis and topic tagging
+- AI-generated chat summaries and response suggestions
+- Scalable async processing with WebSocket/polling
+- Secure Clerk authentication and routing
+
+## 🚀 Tech Stack
+
+- **Next.js** (App Router)
+- **Tailwind CSS** & **shadcn/ui**
+- **Clerk** for authentication
+- **Axios** for backend API calls
+- **WebSocket / Polling** for async updates
+
+## 🧩 Folder Structure
+
+```
+/app               → Next.js routes & pages
+/components        → UI and layout components
+/hooks             → Custom React hooks
+/lib               → Utility functions (API clients, etc.)
+/public            → Static assets
+/styles            → Global Tailwind styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 1. Clone the repo
+git clone https://github.com/root4nishant/insightChat.git
+cd insightChat
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 2. Install dependencies
+pnpm install
 
-## Learn More
+# 3. Set up environment variables
+cp .env.example .env.local
+# Fill in Clerk, backend URLs, etc.
 
-To learn more about Next.js, take a look at the following resources:
+# 4. Run the dev server
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛡️ Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You’ll need:
 
-## Deploy on Vercel
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+- `CLERK_SECRET_KEY`
+- `NEXT_PUBLIC_BACKEND_URL`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Build & Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm build
+pnpm start
+```
+
+Can be deployed to **Vercel** or any static hosting platform.
+
+## 📬 Feedback
+
+For bugs or feature requests, feel free to open an issue or contact the team.
+
+---
+
+Built with ❤️ by the InsightChat Team.
