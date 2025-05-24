@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-white font-semibold  flex items-center justify-center lg:gap-5 gap-3"
+              className="text-white font-semibold  flex items-center justify-center lg:gap-4 gap-3"
             >
               <Image
                 loading="lazy"
@@ -37,7 +37,7 @@ export default function Navbar() {
                 height={40}
               />
               <div className="text-gray-300 font-semibold lg:text-2xl md:text-lg text-md">
-                InsightChat
+                InsightChat AI
               </div>
             </Link>
             <div

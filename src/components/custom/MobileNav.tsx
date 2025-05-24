@@ -32,13 +32,12 @@ export default function MobileNavigation({
         <div className="flex gap-2 bg-[#1a1a1a] w-full py-8 px-5 items-center">
           <Image
             loading="lazy"
-            src="/logo.svg"
+            src="/logo_new.png"
             alt="Logo"
-            className="invert"
             width={30}
             height={30}
           />
-          <h1 className="text-white font-semibold text-xl">Columsprout AI</h1>
+          <h1 className="text-white font-semibold text-xl">InsightChat AI</h1>
         </div>
         <li className="w-full px-6">
           <button
