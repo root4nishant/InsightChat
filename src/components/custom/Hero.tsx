@@ -1,14 +1,14 @@
 import { Button } from "@/components/custom/reusables/button";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import Section from "./reusables/Section";
 import Tag from "./Tag";
 
 interface HeroSectionProps {
   gradientOverlay?: string;
   tagText?: string;
-  title: string;
+  // title: string;
   highlightText: string;
-  highlightIcon?: ReactNode;
+  // highlightIcon?: ReactNode;
   description: string;
   buttonText: string;
   buttonLink?: string;
@@ -24,9 +24,9 @@ interface HeroSectionProps {
 const HeroSection: FC<HeroSectionProps> = ({
   gradientOverlay,
   tagText,
-  title,
+  // title,
   highlightText,
-  highlightIcon,
+  // highlightIcon,
   description,
   buttonText,
   buttonLink,

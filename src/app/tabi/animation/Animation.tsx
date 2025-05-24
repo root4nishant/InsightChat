@@ -2,11 +2,10 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 //import { HiOutlineSparkles } from "react-icons/hi2";
 import { IoSparkles } from "react-icons/io5";
-import { FaDownload } from "react-icons/fa";
 
 
 // Reusable card variants, each card can have a "custom" y-offset

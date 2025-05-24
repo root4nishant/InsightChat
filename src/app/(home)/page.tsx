@@ -1,15 +1,14 @@
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
-import { Sparkle } from "lucide-react";
-import Navbar from "@/components/custom/nav";
 import Footer from "@/components/custom/Footer";
+import Navbar from "@/components/custom/nav";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import VideoWithMessages from "../tabi/components/Video";
 // import BlogSection from "@/components/custom/Blog";
 
 // Dynamically import components
 const HeroSection = dynamic(() => import("@/components/custom/Hero"));
 const AITeamSection = dynamic(() => import("@/components/custom/Ait"));
-const Benefits = dynamic(() => import("@/components/custom/Benefits"));
+// const Benefits = dynamic(() => import("@/components/custom/Benefits"));
 const Banner = dynamic(() => import("./components/Banner"));
 
 export default function Home() {
@@ -21,9 +20,9 @@ export default function Home() {
           <HeroSection
             gradientOverlay="bg-gradient-to-b from-black/30 via-transparent to-white"
             tagText="Introducing"
-            title="Your Store's"
+            // title="Your Store's"
             highlightText="Your AI Powered Chat Analysis Assistant"
-            highlightIcon={<Sparkle />}
+            // highlightIcon={<Sparkle />}
             description="Unleash the power of AI to automate repetitive tasks, enhance your storefront experience, personalize customer interactions, and drive higher sales conversions effortlessly"
             buttonText="Try Demo"
             // buttonLink="https://calendly.com/srivastavanishant/30min"
