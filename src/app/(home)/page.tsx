@@ -49,8 +49,8 @@ export default function Home() {
           <div className="z-10 relative">
             <Banner
               message="Try Columsprout AI today & "
-              buttonText="Try Tabi"
-              buttonLink="https://tabi.columsprout.ai/"
+              buttonText="Try Demo"
+              buttonLink="/dashboard"
               message2="elevate your storefront today"
             />
           </div>
