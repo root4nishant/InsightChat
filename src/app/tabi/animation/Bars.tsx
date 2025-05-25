@@ -33,7 +33,7 @@ export function Bars() {
       <CardContent className="bg-transparent p-0">
         <ChartContainer config={chartConfig} className="bg-transparent">
           <BarChart data={chartData}>
-            <CartesianGrid vertical={false} horizontal={false} />
+            {/* <CartesianGrid vertical={false} horizontal={false} />
             <XAxis
               dataKey="month"
               tickLine={false}
@@ -44,7 +44,7 @@ export function Bars() {
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="dashed" />}
-            />
+            /> */}
             <Bar dataKey="desktop" fill="#3b82f6" radius={4} />
             <Bar dataKey="mobile" fill="#9333ea" radius={4} />
           </BarChart>

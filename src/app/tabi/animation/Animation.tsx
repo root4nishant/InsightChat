@@ -217,7 +217,7 @@ export default function AnimationFlow() {
             animate="animate"
             exit="exit"
             variants={cardVariants}
-            className="flex w-full lg:p-4 md:p-2 p-1 bg-white bg-opacity-75 rounded-lg shadow-xl"
+            className="flex w-full bg-white bg-opacity-75 rounded-lg shadow-xl"
           >
            <Chart />
            <Bars />

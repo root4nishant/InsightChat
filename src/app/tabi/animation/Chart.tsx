@@ -1,14 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Pie, PieChart } from "recharts";
+import { Pie, PieChart, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "#38bdf8" }, // sky-400
@@ -26,30 +21,28 @@ export function Chart() {
   return (
     <Card className="w-full bg-transparent shadow-none border-none rounded-xl p-0">
       <CardHeader className="items-center pb-0 p-0" />
-      <CardContent className="relative flex-1 pb-0 bg-transparent p-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-auto p-0 lg:w-[160px] lg:h-[160px] md:w-[120px] md:h-[120px] w-[80px] h-[80px] bg-transparent"
+      <CardContent className="relative flex items-center justify-center min-h-[80px]  md:min-h-[100px] lg:min-h-[180px] bg-transparent p-0">
+        <ResponsiveContainer
+          width="100%"
+          height="100%"
+          className="!w-[80px] sm:!w-[100px] md:!w-[140px] lg:!w-[160px] !h-[80px] sm:!h-[100px] md:!h-[140px] lg:!h-[160px]"
         >
           <PieChart>
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
             <Pie
               data={chartData}
               dataKey="visitors"
               nameKey="browser"
-              innerRadius={40}
+              innerRadius="50%"
               strokeWidth={2}
             />
           </PieChart>
-        </ChartContainer>
+        </ResponsiveContainer>
 
+        {/* Center Logo */}
         <img
           src="/logo_new.png"
           alt="Center Logo"
-          className="absolute left-1/2 top-1/2 lg:w-8 lg:h-8 md:w-6 md:h-6 w-4 h-4 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute left-1/2 top-1/2 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         />
       </CardContent>
     </Card>
