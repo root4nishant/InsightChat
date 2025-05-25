@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ChartConfig } from "@/components/ui/chart";
+import Image from "next/image";
 import { Pie, PieChart, ResponsiveContainer } from "recharts";
 
 const chartData = [
@@ -12,9 +13,9 @@ const chartData = [
   { browser: "other", visitors: 190, fill: "#10b981" }, // emerald-500
 ];
 
-const chartConfig = {
-  visitors: { label: "Visitors" },
-} satisfies ChartConfig;
+// const chartConfig = {
+//   visitors: { label: "Visitors" },
+// } satisfies ChartConfig;
 
 export function Chart() {
   return (
@@ -38,7 +39,7 @@ export function Chart() {
         </ResponsiveContainer>
 
         {/* Center Logo */}
-        <img
+        <Image
           src="/logo_new.png"
           alt="Center Logo"
           className="absolute left-1/2 top-1/2 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
