@@ -1,9 +1,8 @@
 "use client";
 
-import * as React from "react";
-import { Pie, PieChart, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { ChartConfig } from "@/components/ui/chart";
+import { Pie, PieChart, ResponsiveContainer } from "recharts";
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "#38bdf8" }, // sky-400

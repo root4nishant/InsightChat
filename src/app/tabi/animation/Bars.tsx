@@ -1,13 +1,11 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
   ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
+  ChartContainer
 } from "@/components/ui/chart";
+import { Bar, BarChart } from "recharts";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
