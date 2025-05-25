@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { ChartConfig } from "@/components/ui/chart";
 import Image from "next/image";
 import { Pie, PieChart, ResponsiveContainer } from "recharts";
 
