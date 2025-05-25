@@ -145,7 +145,7 @@ export default function AnimationFlow() {
             animate="animate"
             exit="exit"
             variants={cardVariants}
-            className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
+            className="lg:p-4 md:p-2 p-1 bg-white bg-opacity-75 rounded-lg shadow-xl"
           >
             <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
               <IconUpload />
@@ -180,7 +180,7 @@ export default function AnimationFlow() {
             animate="animate"
             exit="exit"
             variants={cardVariants}
-            className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
+            className="lg:p-4 md:p-2 p-1 bg-white bg-opacity-75 rounded-lg shadow-xl"
           >
             <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
               <IoSparkles className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-blue-500" />
@@ -217,7 +217,7 @@ export default function AnimationFlow() {
             animate="animate"
             exit="exit"
             variants={cardVariants}
-            className="flex w-full lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
+            className="flex w-full lg:p-4 md:p-2 p-1 bg-white bg-opacity-75 rounded-lg shadow-xl"
           >
            <Chart />
            <Bars />
