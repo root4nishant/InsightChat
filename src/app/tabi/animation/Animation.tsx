@@ -6,7 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 //import { HiOutlineSparkles } from "react-icons/hi2";
 import { IoSparkles } from "react-icons/io5";
-
+import { Chart } from "./Chart";
+import { Bars } from "./Bars";
 
 // Reusable card variants, each card can have a "custom" y-offset
 const cardVariants = {
@@ -28,7 +29,7 @@ const cardVariants = {
 
 const IconUpload = () => (
   <svg
-    className="size-5 text-primary-dark"
+    className="size-5 text-blue-500"
     fill="none"
     stroke="currentColor"
     strokeLinecap="round"
@@ -63,48 +64,48 @@ export default function AnimationFlow() {
     timeoutsRef.current.push(
       window.setTimeout(() => {
         setVisibleSteps([1, 2]);
-      }, 4000)
+      }, 3000)
     );
 
     // 3) At t=3s, add Step 3
     timeoutsRef.current.push(
       window.setTimeout(() => {
         setVisibleSteps([2]);
+      }, 4000)
+    );
+    timeoutsRef.current.push(
+      window.setTimeout(() => {
+        setVisibleSteps([2, 3]);
       }, 5000)
     );
-    timeoutsRef.current.push(
-      window.setTimeout(() => {
-        setVisibleSteps([2, 3]);
-      }, 6000)
-    );
 
-    // 4) At t=4s, remove Step 1 => left with [2, 3]
-    timeoutsRef.current.push(
-      window.setTimeout(() => {
-        setVisibleSteps([2, 3]);
-      }, 6000)
-    );
+    // // 4) At t=4s, remove Step 1 => left with [2, 3]
+    // timeoutsRef.current.push(
+    //   window.setTimeout(() => {
+    //     setVisibleSteps([2, 3]);
+    //   }, 6000)
+    // );
 
-    // 5) At t=6s, remove Steps 2 & 3 => []
-    timeoutsRef.current.push(
-      window.setTimeout(() => {
-        setVisibleSteps([]);
-      }, 10000)
-    );
+    // // 5) At t=6s, remove Steps 2 & 3 => []
+    // timeoutsRef.current.push(
+    //   window.setTimeout(() => {
+    //     setVisibleSteps([]);
+    //   }, 10000)
+    // );
 
-    // 6) At t=7s, show Step 4 => [4]
-    timeoutsRef.current.push(
-      window.setTimeout(() => {
-        setVisibleSteps([4]);
-      }, 10000)
-    );
+    // // 6) At t=7s, show Step 4 => [4]
+    // timeoutsRef.current.push(
+    //   window.setTimeout(() => {
+    //     setVisibleSteps([4]);
+    //   }, 10000)
+    // );
 
-    // 7) At t=8s, show Step 5 => [4, 5]
-    timeoutsRef.current.push(
-      window.setTimeout(() => {
-        setVisibleSteps([4, 5]);
-      }, 12000)
-    );
+    // // 7) At t=8s, show Step 5 => [4, 5]
+    // timeoutsRef.current.push(
+    //   window.setTimeout(() => {
+    //     setVisibleSteps([4, 5]);
+    //   }, 12000)
+    // );
 
     // 8) At t=9s, remove Step 4 => left with [5]
     // timeoutsRef.current.push(
@@ -121,7 +122,7 @@ export default function AnimationFlow() {
         setTimeout(() => {
           startCycle(); // re-run the entire sequence
         }, 300);
-      }, 17000)
+      }, 8000)
     );
   };
 
@@ -160,7 +161,7 @@ export default function AnimationFlow() {
               transition={{ delay: 1, duration: 0.2 }}
             >
               <motion.div
-                className="h-full bg-primary-dark"
+                className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 1, duration: 1 }}
@@ -182,7 +183,7 @@ export default function AnimationFlow() {
             className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
           >
             <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
-              <IoSparkles className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-primary-dark" />
+              <IoSparkles className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-blue-500" />
               <span className="lg:text-sm md:text-[10px] text-[6px] text-black font-bold">
                 Processing with AI Models
               </span>
@@ -197,7 +198,7 @@ export default function AnimationFlow() {
               transition={{ delay: 1, duration: 0.2 }}
             >
               <motion.div
-                className="h-full bg-primary-dark"
+                className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 1, duration: 1 }}
@@ -216,26 +217,10 @@ export default function AnimationFlow() {
             animate="animate"
             exit="exit"
             variants={cardVariants}
-            className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
+            className="flex w-full lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
           >
-            <div className="lg:px-4 px-2 lg:py-3 py-1 lg:text-sm md:text-[10px] text-[6px]  rounded-lg bg-gray-100 bg-opacity-70">
-              <div className="grid grid-cols-2 gap-2 text-gray-700 font-semibold lg:mb-2 mb-1">
-                <div>Products</div>
-                <div>General Review</div>
-              </div>
-              <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px] lg:mb-2 mb-1">
-                <div>"Men's Running Shoes"</div>
-                <div className="text-primary-dark">Exude Confidence</div>
-              </div>
-              <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px] lg:mb-2 mb-1">
-                <div>"Leather Dress Shoes"</div>
-                <div className="text-primary-dark">Step Into Elegance</div>
-              </div>
-              {/* <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px]">
-                <div>"Kids' Sports Shoes"</div>
-                <div className="text-primary-dark">Play in Style</div>
-              </div> */}
-            </div>
+           <Chart />
+           <Bars />
           </motion.div>
         );
 
@@ -252,7 +237,7 @@ export default function AnimationFlow() {
       //       className="lg:p-4 md:p-2 p-1 bg-gray-100 bg-opacity-70 rounded-lg shadow-xl"
       //     >
       //       <div className="flex items-center lg:gap-3 md:gap-2 gap-1  lg:py-3 py-1">
-      //         <FaDownload className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-primary-dark" />
+      //         <FaDownload className="lg:w-5 md:w-4 w-3 lg:h-5 md:h-4 h-3 text-blue-500" />
       //         <span className="lg:text-sm md:text-[10px] text-[6px] text-black font-bold">
       //           Export instantly
       //         </span>
@@ -265,7 +250,7 @@ export default function AnimationFlow() {
       //         transition={{ delay: 1, duration: 0.2 }}
       //       >
       //         <motion.div
-      //           className="h-full bg-primary-dark"
+      //           className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
       //           initial={{ width: "0%" }}
       //           animate={{ width: "100%" }}
       //           transition={{ delay: 1, duration: 1 }}
@@ -293,19 +278,19 @@ export default function AnimationFlow() {
               </div>
               <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px] lg:mb-2 mb-1">
                 <div>"Men's Running Shoes"</div>
-                <div className="text-primary-dark">Run Faster Today</div>
+                <div className="text-blue-500">Run Faster Today</div>
               </div>
               <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px] lg:mb-2 mb-1">
                 <div>"Leather Dress Shoes"</div>
-                <div className="text-primary-dark">Step into Elegance</div>
+                <div className="text-blue-500">Step into Elegance</div>
               </div>
               <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px] lg:mb-2 mb-1">
                 <div>"Kids' Sports Shoes"</div>
-                <div className="text-primary-dark">Play in Style</div>
+                <div className="text-blue-500">Play in Style</div>
               </div>
               <div className="grid grid-cols-2 gap-2 items-center lg:text-sm md:text-[10px] text-[6px] lg:mb-2 mb-1">
                 <div>"Casual Sneakers"</div>
-                <div className="text-primary-dark">Your Daily Essential</div>
+                <div className="text-blue-500">Your Daily Essential</div>
               </div>
               {/* Pagination row */}
               <div className="flex items-center justify-between mt-3">
@@ -319,7 +304,7 @@ export default function AnimationFlow() {
                   <span>18</span>
                 </nav>
                 <motion.button
-                  className="rounded-lg  bg-primary-dark bg-opacity-70 px-4 py-2 lg:text-sm md:text-[10px] text-[6px] text-white font-bold shadow-sm"
+                  className="rounded-lg  bg-gradient-to-r from-blue-500 to-purple-500 bg-opacity-70 px-4 py-2 lg:text-sm md:text-[10px] text-[6px] text-white font-bold shadow-sm"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >

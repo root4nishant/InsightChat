@@ -29,9 +29,9 @@ export default function Home() {
             buttonLink="/dashboard"
           />
         </Suspense>
-         <Suspense fallback={<div>Loading Video Section...</div>}>
-                <VideoWithMessages />
-              </Suspense>
+        <Suspense fallback={<div>Loading Video Section...</div>}>
+          <VideoWithMessages />
+        </Suspense>
 
         <Suspense fallback={<div>Loading AI Team Section...</div>}>
           <AITeamSection />
