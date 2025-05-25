@@ -29,7 +29,7 @@ export function Chart() {
       <CardContent className="relative flex-1 pb-0 bg-transparent p-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto p-0 w-[160px] h-[160px] bg-transparent"
+          className="mx-auto p-0 lg:w-[160px] lg:h-[160px] md:w-[120px] md:h-[120px] w-[80px] h-[80px] bg-transparent"
         >
           <PieChart>
             <ChartTooltip
@@ -49,7 +49,7 @@ export function Chart() {
         <img
           src="/logo_new.png"
           alt="Center Logo"
-          className="absolute left-1/2 top-1/2 w-8 h-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute left-1/2 top-1/2 lg:w-8 lg:h-8 md:w-6 md:h-6 w-4 h-4 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         />
       </CardContent>
     </Card>
