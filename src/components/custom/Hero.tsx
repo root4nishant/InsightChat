@@ -58,7 +58,7 @@ const HeroSection: FC<HeroSectionProps> = ({
       ></div>
 
       <Section className="flex flex-col items-center justify-center bg-no-repeat bg-cover relative">
-        <div className="z-10 py-20 md:py-0 md:pt-28 lg:pt-24 pt-20">
+        <div className="z-10 md:py-0 md:pt-28 lg:pt-24 pt-20">
           <div className="lg:max-w-5xl w-full mx-auto text-center lg:gap-8 gap-3 flex flex-col">
             <div className="flex flex-col gap-1">
               {tagText && <Tag text={tagText} />}

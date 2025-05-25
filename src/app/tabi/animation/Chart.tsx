@@ -39,6 +39,8 @@ export function Chart() {
 
         {/* Center Logo */}
         <Image
+          width={24}
+          height={24}
           src="/logo_new.png"
           alt="Center Logo"
           className="absolute left-1/2 top-1/2 w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 -translate-x-1/2 -translate-y-1/2 pointer-events-none"

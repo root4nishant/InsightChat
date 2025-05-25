@@ -29,7 +29,7 @@ const Banner: React.FC<BannerProps> = ({
                 {buttonText}
               </Button>
             </a>
-            <a href="https://calendly.com/meghav-columsprout" target="_blank">
+            <a href="https://calendly.com/srivastava4nishant/30min" target="_blank">
               <Button className="lg:p-6 p-4 lg:w-[172px] md:w-[120px] w-[96px] h-[38px] lg:h-[60px] md:h-[44px] bg-white text-primary-dark rounded-sm lg:text-lg font-bold text-xs shadow-md hover:bg-black hover:text-white transition-colors duration-300">
                 Book Demo
               </Button>
