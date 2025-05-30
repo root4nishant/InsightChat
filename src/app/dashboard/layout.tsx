@@ -11,7 +11,7 @@ export default function DashboardLayout({
       {/* <Sidebar /> */}
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto">
+      <main className="max-w-[1400px] mx-auto w-full">
         
         {children}
       </main>
