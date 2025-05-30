@@ -1,6 +1,4 @@
 // import Sidebar from "@/components/custom/Sidebar";
-import Navbar from "@/components/custom/nav";
-import { UserButton } from "@clerk/nextjs";
 
 export default function DashboardLayout({
   children,

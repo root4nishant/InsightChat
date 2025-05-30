@@ -1,41 +1,40 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useEffect, useState } from "react";
-import { useAuth, UserButton } from "@clerk/nextjs";
-import { sendSessionIdToExtension } from "@/utils/sendSessionToExtension";
-import { useRouter } from "next/navigation";
-import { Spinner } from "./Loader";
-import Link from "next/link";
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Legend,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  LineChart,
-  Line,
-  ResponsiveContainer,
-} from "recharts";
-import {
-  TrendingUp,
-  MessageSquare,
-  BarChart3,
-  Target,
-  Lightbulb,
-  Hash,
-  Clock,
-  Zap,
-  Brain,
-  Sparkles,
-  Activity,
-  Users,
-} from "lucide-react";
 import Navbar from "@/components/custom/nav";
+import { sendSessionIdToExtension } from "@/utils/sendSessionToExtension";
+import { useAuth, UserButton } from "@clerk/nextjs";
+import {
+  Activity,
+  BarChart3,
+  Brain,
+  Clock,
+  Hash,
+  Lightbulb,
+  MessageSquare,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Line,
+  LineChart,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts";
+import { Spinner } from "./Loader";
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444", "#8B5CF6", "#3B82F6"];
 
