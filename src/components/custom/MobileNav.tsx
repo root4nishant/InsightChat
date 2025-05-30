@@ -39,7 +39,7 @@ export default function MobileNavigation({
           />
           <h1 className="text-white font-semibold text-xl">InsightChat AI</h1>
         </div>
-        <li className="w-full px-6">
+        {/* <li className="w-full px-6">
           <button
             onClick={() => setMobileProductOpen(!isMobileProductOpen)}
             className="text-xl font-semibold w-full text-left flex items-center justify-start"
@@ -57,38 +57,38 @@ export default function MobileNavigation({
               <hr className=" bg-black" />
             </div>
           )}
-        </li>
+        </li> */}
         <li className="w-full px-6">
           <a
-            href="https://tabi.columsprout.ai/"
+            href="/dashboard"
             className="text-black text-xl font-bold"
             target="_blank"
             onClick={onClose}
           >
-            Try Tabi
+            Try Demo
           </a>
         </li>
         <li className="w-full px-6">
           <Link
-            href="/pricing"
+            href="/plans"
             className="text-black text-xl font-bold"
             onClick={onClose}
           >
             Pricing
           </Link>
         </li>
-        {/* <li className="w-full px-6">
+        <li className="w-full px-6">
           <Link
-            href="/blogs"
+            href="/docs"
             className="text-black text-xl font-bold"
             onClick={onClose}
           >
             Blogs
           </Link>
-        </li> */}
+        </li>
         <li className="w-full px-6">
           <Link
-            href="https://calendly.com/meghav-columsprout"
+            href="https://calendly.com/srivastava4nishant/30min"
             className="text-black text-xl font-bold"
             onClick={onClose}
           >
