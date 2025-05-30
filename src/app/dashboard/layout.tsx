@@ -1,4 +1,6 @@
 // import Sidebar from "@/components/custom/Sidebar";
+import Navbar from "@/components/custom/nav";
+import { UserButton } from "@clerk/nextjs";
 
 export default function DashboardLayout({
   children,
@@ -11,7 +13,7 @@ export default function DashboardLayout({
       {/* <Sidebar /> */}
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto">
+      <main className="max-w-[1400px] mx-auto w-full">
         
         {children}
       </main>
