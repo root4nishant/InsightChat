@@ -272,7 +272,7 @@ export default function DashboardPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen mx-auto px-4 lg:px-20 pt-20 ">
+      <div className="min-h-screen mx-auto px-4 lg:px-20 pt-20 max-w-[1400px]">
         {/* Decorative Elements */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10 ">
           <div className="absolute top-20 left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
