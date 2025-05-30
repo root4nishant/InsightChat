@@ -15,8 +15,12 @@ import {
 import { useState } from "react";
 
 export default function DocsPage() {
-  const [activeSection, setActiveSection] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  type SectionType = "about" | null;
+  type CardType = string | null;
+
+  const [activeSection, setActiveSection] = useState<SectionType>(null);
+  const [hoveredCard, setHoveredCard] = useState<CardType>(null);
+  
 
   const pages = [
     {
@@ -139,7 +143,7 @@ export default function DocsPage() {
             }`}
             onClick={() =>
               setActiveSection(
-                activeSection === "about" ? null : ("about" as any)
+                activeSection === "about" ? null : ("about" )
               )
             }
           >
@@ -188,7 +192,7 @@ export default function DocsPage() {
                 className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl hover:scale-105 cursor-pointer ${
                   hoveredCard === `page-${index}` ? "z-10" : ""
                 }`}
-                onMouseEnter={() => setHoveredCard(`page-${index}` as any)}
+                onMouseEnter={() => setHoveredCard(`page-${index}` )}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <div
@@ -230,7 +234,7 @@ export default function DocsPage() {
               <div
                 key={index}
                 className="group flex items-start bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] cursor-pointer"
-                onMouseEnter={() => setHoveredCard(`step-${index}` as any)}
+                onMouseEnter={() => setHoveredCard(`step-${index}` )}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mr-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -261,7 +265,7 @@ export default function DocsPage() {
               <div
                 key={index}
                 className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl hover:scale-105 cursor-pointer"
-                onMouseEnter={() => setHoveredCard(`tech-${index}` as any)}
+                onMouseEnter={() => setHoveredCard(`tech-${index}` )}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <div className="flex items-center mb-4">
