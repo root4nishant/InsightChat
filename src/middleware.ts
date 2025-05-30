@@ -16,9 +16,9 @@ export default clerkMiddleware(async (auth, req) => {
   await auth.protect();
 
   // If the user tries to access any page *other than* /dashboard or /plans, redirect them
-  if (!allowedRoutes.includes(pathname)) {
-    return NextResponse.redirect(new URL("/dashboard", req.url));
-  }
+  // if (!allowedRoutes.includes(pathname)) {
+  //   return NextResponse.redirect(new URL("/dashboard", req.url));
+  // }
 
   return NextResponse.next();
 });

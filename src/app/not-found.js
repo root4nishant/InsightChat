@@ -24,13 +24,18 @@ export default function NotFound() {
 
   return (
     <div className="h-[92vh] flex flex-col justify-center items-center">
-      <Image
-        src="/logo2.png"
-        loading="lazy"
-        alt="logo"
-        width={200}
-        height={200}
-      />
+      <div className="flex justify-center items-center gap-2">
+        <Image
+          src="/logo_new.png"
+          loading="lazy"
+          alt="logo"
+          width={35}
+          height={35}
+        />
+        <div className="text-black font-bold lg:text-3xl md:text-lg text-md font-primary">
+          InsightChat AI
+        </div>{" "}
+      </div>
       <Heading text="404!" />
       <p>
         Redirecting to the home page in <span>{countdown}</span> seconds...
