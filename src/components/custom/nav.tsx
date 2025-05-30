@@ -71,12 +71,12 @@ export default function Navbar() {
             >
               Pricing
             </Link>
-            <a
+            <Link
               href="/docs"
               className="text-gray-300 hover:text-white text-md font-bold"
             >
               Docs
-            </a>
+            </Link>
 
             <a
               href="https://calendly.com/srivastavanishant/30min"

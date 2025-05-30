@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ export default function MobileNavigation({
   isOpen,
   onClose,
 }: MobileNavigationProps) {
-  const [isMobileProductOpen, setMobileProductOpen] = useState(false);
+  // const [isMobileProductOpen, setMobileProductOpen] = useState(false);
 
   return (
     <nav
