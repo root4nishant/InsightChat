@@ -16,14 +16,43 @@ import {
   Shield,
   UserCheck,
 } from "lucide-react";
-import { useState } from "react";
+import { JSX, useState } from "react";
+
+  
+type SectionId =
+  | "acceptance"
+  | "user-accounts"
+  | "payment-terms"
+  | "data-usage"
+  | "intellectual-property"
+  | "limitations"
+  | "termination"
+  | null;
+
+interface SectionContent {
+  subtitle: string;
+  items: string[];
+}
+
+interface Section {
+  id: SectionId;
+  title: string;
+  icon: JSX.Element;
+  color: string;
+  content: SectionContent[];
+}
+
 
 export default function TermsOfServicePage() {
 
-  const [activeSection, setActiveSection] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [activeSection, setActiveSection] = useState<SectionId>(null);
+  const [hoveredCard, setHoveredCard] = useState<SectionId>(null);
 
-  const sections = [
+  // const toggleSection = (sectionId: SectionId) => {
+  //   setActiveSection(activeSection === sectionId ? null : sectionId);
+  // };
+
+  const sections:Section[] = [
     {
       id: "acceptance",
       title: "Acceptance of Terms",
@@ -208,9 +237,10 @@ export default function TermsOfServicePage() {
     },
   ];
 
-  const toggleSection = (sectionId) => {
+  const toggleSection = (sectionId: SectionId) => {
     setActiveSection(activeSection === sectionId ? null : sectionId);
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-orange-100">

@@ -4,7 +4,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React, { useState } from "react";
+import React, { JSX, useState } from "react";
 import {
   Shield,
   Eye,
@@ -18,12 +18,34 @@ import {
   Mail,
 } from "lucide-react";
 
+type SectionId =
+  | "information-collection"
+  | "data-usage"
+  | "data-protection"
+  | "third-party"
+  | "user-rights"
+  | "cookies"
+  | null;
+
+interface SectionContent {
+  subtitle: string;
+  items: string[];
+}
+
+interface Section {
+  id: SectionId;
+  title: string;
+  icon: JSX.Element;
+  color: string;
+  content: SectionContent[];
+}
 export default function PrivacyPolicyPage() {
   
-  const [activeSection, setActiveSection] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [activeSection, setActiveSection] = useState<SectionId>(null);
+  const [hoveredCard, setHoveredCard] = useState<SectionId>(null);
 
-  const sections = [
+
+  const sections:Section[] = [
     {
       id: "information-collection",
       title: "Information We Collect",
@@ -182,7 +204,7 @@ export default function PrivacyPolicyPage() {
     },
   ];
 
-  const toggleSection = (sectionId) => {
+  const toggleSection = (sectionId: SectionId) => {
     setActiveSection(activeSection === sectionId ? null : sectionId);
   };
 
