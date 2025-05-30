@@ -1,18 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+
 import {
-  Scale,
-  UserCheck,
-  CreditCard,
-  Shield,
   AlertTriangle,
-  FileText,
   ChevronRight,
   Clock,
-  Mail,
+  CreditCard,
+  FileText,
   Gavel,
+  Mail,
+  Scale,
+  Shield,
+  UserCheck,
 } from "lucide-react";
+import { useState } from "react";
 
 export default function TermsOfServicePage() {
 
@@ -250,7 +254,7 @@ export default function TermsOfServicePage() {
 
         {/* Main Sections */}
         <div className="space-y-6">
-          {sections.map((section, index) => (
+          {sections.map((section) => (
             <div
               key={section.id}
               className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl cursor-pointer ${
