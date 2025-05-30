@@ -35,6 +35,8 @@ import {
   YAxis
 } from "recharts";
 import { Spinner } from "./Loader";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444", "#8B5CF6", "#3B82F6"];
 
@@ -148,6 +150,7 @@ const InsightCard = ({ insight, index }: any) => {
 };
 
 export default function DashboardPage() {
+  const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(true);
   const [mlInsights] = useState<any>(null);
   const [analysis, setAnalysis] = useState<any>(null);
@@ -156,6 +159,7 @@ export default function DashboardPage() {
   const { sessionId, isSignedIn } = useAuth();
   const router = useRouter();
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -214,6 +218,44 @@ export default function DashboardPage() {
           <p className="mt-4 text-gray-600 font-medium">
             Loading your insights...
           </p>
+        </div>
+      </div>
+    );
+  }
+ 
+  if (isMobile) {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-100 via-indigo-100 to-pink-100 text-center px-6">
+        <div className="bg-white p-10 rounded-2xl shadow-xl max-w-md">
+          <div className="flex justify-center mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-16 w-16 text-purple-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9.75 9.75l-3.75 3.75m0 0l3.75 3.75m-3.75-3.75h10.5"
+              />
+            </svg>
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-3">
+            Desktop View Only
+          </h2>
+          <p className="text-gray-600 mb-6">
+            This dashboard is optimized for large screens. Please access it on a
+            desktop or laptop for the best experience.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="inline-block bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+          >
+            Refresh Page
+          </button>
         </div>
       </div>
     );
