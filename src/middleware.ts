@@ -2,10 +2,10 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)","/"]);
-const allowedRoutes = ["/dashboard", "/plans", "/docs","/clio","/tabi"];
+// const allowedRoutes = ["/dashboard", "/plans", "/docs","/clio","/tabi"];
 
 export default clerkMiddleware(async (auth, req) => {
-  const pathname = req.nextUrl.pathname;
+  // const pathname = req.nextUrl.pathname;
 
   // Allow public routes (like sign-in)
   if (isPublicRoute(req)) {
@@ -16,9 +16,9 @@ export default clerkMiddleware(async (auth, req) => {
   await auth.protect();
 
   // If the user tries to access any page *other than* /dashboard or /plans, redirect them
-  if (!allowedRoutes.includes(pathname)) {
-    return NextResponse.redirect(new URL("/dashboard", req.url));
-  }
+  // if (!allowedRoutes.includes(pathname)) {
+  //   return NextResponse.redirect(new URL("/dashboard", req.url));
+  // }
 
   return NextResponse.next();
 });
