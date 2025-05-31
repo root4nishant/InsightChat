@@ -293,7 +293,7 @@ export default function DocsPage() {
             </div>
           </section>
 
-          {/* Floating Action Button */}
+          {/* Floating Action Button
           <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50">
             <button
               className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 hover:shadow-blue-500/25"
@@ -301,7 +301,7 @@ export default function DocsPage() {
             >
               <Code className="w-6 h-6" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />
