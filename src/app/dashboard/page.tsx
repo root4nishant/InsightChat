@@ -36,6 +36,7 @@ import {
 } from "recharts";
 import { Spinner } from "./Loader";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Footer from "@/components/custom/Footer";
 
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444", "#8B5CF6", "#3B82F6"];
@@ -210,19 +211,6 @@ export default function DashboardPage() {
     if (analysis) setIsLoading(false);
   }, [analysis]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex justify-center items-center">
-        <div className="text-center">
-          <Spinner />
-          <p className="mt-4 text-gray-600 font-medium">
-            Loading your insights...
-          </p>
-        </div>
-      </div>
-    );
-  }
- 
   if (isMobile) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-100 via-indigo-100 to-pink-100 text-center px-6">
@@ -260,6 +248,20 @@ export default function DashboardPage() {
       </div>
     );
   }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <div className="text-center">
+          <Spinner />
+          <p className="mt-4 text-gray-600 font-medium">
+            Loading your insights...
+          </p>
+        </div>
+      </div>
+    );
+  }
+ 
 
   if (!analysis || Object.keys(analysis).length === 0) {
     return (
@@ -623,6 +625,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
