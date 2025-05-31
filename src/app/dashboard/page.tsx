@@ -32,12 +32,11 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis
+  YAxis,
 } from "recharts";
 import { Spinner } from "./Loader";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Footer from "@/components/custom/Footer";
-
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444", "#8B5CF6", "#3B82F6"];
 
@@ -161,7 +160,6 @@ export default function DashboardPage() {
   const router = useRouter();
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-
   useEffect(() => {
     const fetchUserInfo = async () => {
       if (!sessionId) return;
@@ -261,7 +259,6 @@ export default function DashboardPage() {
       </div>
     );
   }
- 
 
   if (!analysis || Object.keys(analysis).length === 0) {
     return (
@@ -346,7 +343,7 @@ export default function DashboardPage() {
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-3 rounded-2xl shadow-lg h-full">
               <Zap className="w-5 h-5" />
               <span className="font-semibold">
-                Tokens Remaining: {userInfo?.tokens || 0}
+                Tokens Remaining: <span className="bg-white text-green-600 p-1 rounded-lg">{userInfo?.tokens || 0}</span>
               </span>
               <UserButton />
             </div>
@@ -625,7 +622,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
