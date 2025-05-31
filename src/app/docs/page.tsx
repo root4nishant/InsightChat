@@ -5,13 +5,12 @@ import {
   BarChart3,
   ChevronRight,
   Chrome,
-  Code,
   CreditCard,
   Database,
   FileText,
   Shield,
   Smartphone,
-  Zap,
+  Zap
 } from "lucide-react";
 import { useState } from "react";
 
