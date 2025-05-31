@@ -48,10 +48,10 @@ export default function Home() {
         <Suspense fallback={<div>Loading Banner...</div>}>
           <div className="z-10 relative">
             <Banner
-              message="Try Columsprout AI today & "
+              message="Try InsightChat AI today & "
               buttonText="Try Demo"
               buttonLink="/dashboard"
-              message2="elevate your storefront today"
+              message2="elevate your business today"
             />
           </div>
         </Suspense>

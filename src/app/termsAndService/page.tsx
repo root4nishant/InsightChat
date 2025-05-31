@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/custom/Footer";
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
@@ -16,6 +17,7 @@ import {
   Shield,
   UserCheck,
 } from "lucide-react";
+import Link from "next/link";
 import { JSX, useState } from "react";
 
   
@@ -243,152 +245,156 @@ export default function TermsOfServicePage() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-orange-100">
-      <div className="max-w-6xl mx-auto p-6">
-        {/* Hero Section */}
-        <div className="text-center mb-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-orange-600/10 rounded-3xl transform rotate-1"></div>
-          <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-orange-600 rounded-2xl mb-6 shadow-lg transform hover:scale-110 transition-transform duration-300">
-              <Scale className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-              Terms of Service
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-              Please read these terms carefully before using InsightChat
-              services.
-            </p>
-            <div className="flex items-center justify-center text-sm text-gray-500">
-              <Clock className="w-4 h-4 mr-2" />
-              Last updated: May 31, 2025
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-orange-100">
+        <div className="max-w-6xl mx-auto p-6">
+          {/* Hero Section */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-orange-600/10 rounded-3xl transform rotate-1"></div>
+            <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-orange-600 rounded-2xl mb-6 shadow-lg transform hover:scale-110 transition-transform duration-300">
+                <Scale className="w-10 h-10 text-white" />
+              </div>
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+                Terms of Service
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
+                Please read these terms carefully before using InsightChat
+                services.
+              </p>
+              <div className="flex items-center justify-center text-sm text-gray-500">
+                <Clock className="w-4 h-4 mr-2" />
+                Last updated: May 31, 2025
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Important Notice */}
-        <div className="mb-12">
-          <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-2xl p-6 border border-yellow-200/50">
-            <h3 className="text-xl font-bold text-orange-800 mb-3 flex items-center">
-              <AlertTriangle className="w-5 h-5 mr-2" />
-              Important Notice
-            </h3>
-            <p className="text-orange-700 leading-relaxed">
-              By using InsightChat, you agree to these Terms of Service. These
-              terms create a legal agreement between you and InsightChat. Please
-              ensure you understand your rights and responsibilities before
-              using our services.
-            </p>
+          {/* Important Notice */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-2xl p-6 border border-yellow-200/50">
+              <h3 className="text-xl font-bold text-orange-800 mb-3 flex items-center">
+                <AlertTriangle className="w-5 h-5 mr-2" />
+                Important Notice
+              </h3>
+              <p className="text-orange-700 leading-relaxed">
+                By using InsightChat, you agree to these Terms of Service. These
+                terms create a legal agreement between you and InsightChat.
+                Please ensure you understand your rights and responsibilities
+                before using our services.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Main Sections */}
-        <div className="space-y-6">
-          {sections.map((section) => (
-            <div
-              key={section.id}
-              className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl cursor-pointer ${
-                activeSection === section.id
-                  ? "ring-4 ring-red-500/30 scale-[1.02]"
-                  : ""
-              }`}
-              onClick={() => toggleSection(section.id)}
-              onMouseEnter={() => setHoveredCard(section.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className="p-6">
-                <div className="flex items-center mb-4">
+          {/* Main Sections */}
+          <div className="space-y-6">
+            {sections.map((section) => (
+              <div
+                key={section.id}
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 transition-all duration-500 hover:shadow-2xl cursor-pointer ${
+                  activeSection === section.id
+                    ? "ring-4 ring-red-500/30 scale-[1.02]"
+                    : ""
+                }`}
+                onClick={() => toggleSection(section.id)}
+                onMouseEnter={() => setHoveredCard(section.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${
+                        section.color
+                      } rounded-xl flex items-center justify-center mr-4 shadow-lg transition-transform duration-300 ${
+                        hoveredCard === section.id ? "scale-110" : ""
+                      }`}
+                    >
+                      {section.icon}
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-800 flex-grow">
+                      {section.title}
+                    </h2>
+                    <ChevronRight
+                      className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${
+                        activeSection === section.id ? "rotate-90" : ""
+                      }`}
+                    />
+                  </div>
+
                   <div
-                    className={`w-12 h-12 bg-gradient-to-r ${
-                      section.color
-                    } rounded-xl flex items-center justify-center mr-4 shadow-lg transition-transform duration-300 ${
-                      hoveredCard === section.id ? "scale-110" : ""
+                    className={`overflow-hidden transition-all duration-500 ${
+                      activeSection === section.id
+                        ? "max-h-screen opacity-100"
+                        : "max-h-0 opacity-0"
                     }`}
                   >
-                    {section.icon}
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-800 flex-grow">
-                    {section.title}
-                  </h2>
-                  <ChevronRight
-                    className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${
-                      activeSection === section.id ? "rotate-90" : ""
-                    }`}
-                  />
-                </div>
-
-                <div
-                  className={`overflow-hidden transition-all duration-500 ${
-                    activeSection === section.id
-                      ? "max-h-screen opacity-100"
-                      : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="space-y-6 pt-4">
-                    {section.content.map((item, itemIndex) => (
-                      <div
-                        key={itemIndex}
-                        className="border-l-4 border-gray-200 pl-6"
-                      >
-                        <h4 className="text-lg font-semibold text-gray-800 mb-3">
-                          {item.subtitle}
-                        </h4>
-                        <ul className="space-y-2">
-                          {item.items.map((listItem, listIndex) => (
-                            <li key={listIndex} className="flex items-start">
-                              <div className="w-2 h-2 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                              <span className="text-gray-600 leading-relaxed">
-                                {listItem}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                    <div className="space-y-6 pt-4">
+                      {section.content.map((item, itemIndex) => (
+                        <div
+                          key={itemIndex}
+                          className="border-l-4 border-gray-200 pl-6"
+                        >
+                          <h4 className="text-lg font-semibold text-gray-800 mb-3">
+                            {item.subtitle}
+                          </h4>
+                          <ul className="space-y-2">
+                            {item.items.map((listItem, listIndex) => (
+                              <li key={listIndex} className="flex items-start">
+                                <div className="w-2 h-2 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                <span className="text-gray-600 leading-relaxed">
+                                  {listItem}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Liability Notice */}
-        <div className="mt-12 mb-8">
-          <div className="bg-gradient-to-r from-gray-500/10 to-slate-500/10 rounded-2xl p-6 border border-gray-200/50">
-            <h3 className="text-lg font-bold text-gray-800 mb-3">
-              Limitation of Liability
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              InsightChat provides services "as is" without warranties. We are
-              not liable for indirect, incidental, or consequential damages. Our
-              total liability is limited to the amount you paid for our services
-              in the 12 months preceding any claim.
-            </p>
+            ))}
           </div>
-        </div>
 
-        {/* Contact Section */}
-        <div className="mt-16">
-          <div className="bg-gradient-to-r from-red-500/10 to-orange-600/10 rounded-2xl p-8 border border-red-200/50">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-600 rounded-2xl mb-6 shadow-lg">
-                <Mail className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Questions About These Terms?
+          {/* Liability Notice */}
+          <div className="mt-12 mb-8">
+            <div className="bg-gradient-to-r from-gray-500/10 to-slate-500/10 rounded-2xl p-6 border border-gray-200/50">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">
+                Limitation of Liability
               </h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                If you have any questions about these Terms of Service or need
-                clarification on any points, our legal team is here to help.
+              <p className="text-gray-600 text-sm leading-relaxed">
+                InsightChat provides services "as is" without warranties. We are
+                not liable for indirect, incidental, or consequential damages.
+                Our total liability is limited to the amount you paid for our
+                services in the 12 months preceding any claim.
               </p>
-              <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Contact Legal Team
-                <Mail className="w-4 h-4 ml-2" />
-              </button>
+            </div>
+          </div>
+
+          {/* Contact Section */}
+          <div className="mt-16">
+            <div className="bg-gradient-to-r from-red-500/10 to-orange-600/10 rounded-2xl p-8 border border-red-200/50">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-600 rounded-2xl mb-6 shadow-lg">
+                  <Mail className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  Questions About These Terms?
+                </h3>
+                <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                  If you have any questions about these Terms of Service or need
+                  clarification on any points, our legal team is here to help.
+                </p>
+                <Link
+                  href="mailto:connect@rootnishant.in" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  Contact Legal Team
+                  <Mail className="w-4 h-4 ml-2" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer/>
+    </>
   );
 }
