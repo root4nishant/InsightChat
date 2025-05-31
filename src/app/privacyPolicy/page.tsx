@@ -1,4 +1,3 @@
-
 "use client";
 
 /* eslint-disable react/no-unescaped-entities */
@@ -18,6 +17,7 @@ import {
   Mail,
 } from "lucide-react";
 import Footer from "@/components/custom/Footer";
+import Link from "next/link";
 
 type SectionId =
   | "information-collection"
@@ -41,12 +41,10 @@ interface Section {
   content: SectionContent[];
 }
 export default function PrivacyPolicyPage() {
-  
   const [activeSection, setActiveSection] = useState<SectionId>(null);
   const [hoveredCard, setHoveredCard] = useState<SectionId>(null);
 
-
-  const sections:Section[] = [
+  const sections: Section[] = [
     {
       id: "information-collection",
       title: "Information We Collect",
@@ -335,16 +333,19 @@ export default function PrivacyPolicyPage() {
                   If you have any questions about this Privacy Policy or how we
                   handle your data, please don't hesitate to contact us.
                 </p>
-                <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <Link
+                  href="mailto:connect@rootnishant.in"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
                   Contact Us
                   <Mail className="w-4 h-4 ml-2" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

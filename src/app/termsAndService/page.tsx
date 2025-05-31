@@ -17,6 +17,7 @@ import {
   Shield,
   UserCheck,
 } from "lucide-react";
+import Link from "next/link";
 import { JSX, useState } from "react";
 
   
@@ -383,10 +384,11 @@ export default function TermsOfServicePage() {
                   If you have any questions about these Terms of Service or need
                   clarification on any points, our legal team is here to help.
                 </p>
-                <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <Link
+                  href="mailto:connect@rootnishant.in" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
                   Contact Legal Team
                   <Mail className="w-4 h-4 ml-2" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
