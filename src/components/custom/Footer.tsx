@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="mx-auto flex flex-col items-center max-w-[1400px] w-full px-4 lg:px-20 py-6 space-y-6">
         {/* Top Section */}
         <div className="flex flex-col items-center text-center sm:flex-row sm:justify-between w-full space-y-4 sm:space-y-0">
-          <div className="flex items-center justify-center space-x-4">
+          <Link href={"/"} className="flex items-center justify-center space-x-4">
             <Image
               loading="lazy"
               src="/logo_new.png"
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             <span className="text-xs sm:text-sm lg:text-sm text-gray-300">
               &copy; {new Date().getFullYear()} InsightChat AI
             </span>
-          </div>
+          </Link>
           <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
             <Link
               href="/privacyPolicy"
