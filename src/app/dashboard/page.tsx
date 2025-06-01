@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import Footer from "@/components/custom/Footer";
 import Navbar from "@/components/custom/nav";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { sendSessionIdToExtension } from "@/utils/sendSessionToExtension";
 import { useAuth, UserButton } from "@clerk/nextjs";
 import {
@@ -35,8 +37,6 @@ import {
   YAxis,
 } from "recharts";
 import { Spinner } from "./Loader";
-import { useIsMobile } from "@/hooks/use-mobile";
-import Footer from "@/components/custom/Footer";
 
 const COLORS = ["#10B981", "#FBBF24", "#EF4444", "#8B5CF6", "#3B82F6"];
 
