@@ -7,8 +7,6 @@ import VideoWithMessages from "../tabi/components/Video";
 
 // Dynamically import components
 const HeroSection = dynamic(() => import("@/components/custom/Hero"));
-// const AITeamSection = dynamic(() => import("@/components/custom/Ait"));
-// const Benefits = dynamic(() => import("@/components/custom/Benefits"));
 const Banner = dynamic(() => import("./components/Banner"));
 
 export default function Home() {
