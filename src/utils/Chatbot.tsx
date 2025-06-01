@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { Send, AlertCircle, Bot, User, Sparkles } from "lucide-react";
 import { useSession } from "@clerk/nextjs";
+import { AlertCircle, Send, Sparkles, User } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 import { TbMessageChatbotFilled } from "react-icons/tb";
 
 
