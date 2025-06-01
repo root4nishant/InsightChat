@@ -23,7 +23,7 @@ export default function Home() {
             // title="Your Store's"
             highlightText="Your AI Powered Chat Analysis Assistant"
             // highlightIcon={<Sparkle />}
-            description="Unleash the power of AI to automate repetitive tasks, enhance your storefront experience, personalize customer interactions, and drive higher sales conversions effortlessly"
+            description="Unleash the power of AI to get instant analysis of your chats, save time, and boost customer satisfaction. Experience the future of customer service with InsightChat AI."
             buttonText="Try Demo"
             // buttonLink="https://calendly.com/srivastavanishant/30min"
             buttonLink="/dashboard"
