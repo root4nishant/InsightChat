@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/custom/Footer";
 import Link from "next/link";
+import Navbar from "@/components/custom/nav";
 
 type SectionId =
   | "information-collection"
@@ -209,7 +210,8 @@ export default function PrivacyPolicyPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <Navbar />
+      <div className="min-h-screen lg:pt-20 pt-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <div className="max-w-6xl mx-auto p-6">
           {/* Hero Section */}
           <div className="text-center mb-16 relative">

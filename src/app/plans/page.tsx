@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import Footer from "@/components/custom/Footer";
+import Navbar from "@/components/custom/nav";
 import { useAuth } from "@clerk/nextjs";
 
 // Razorpay types
@@ -73,33 +75,37 @@ export default function PlansPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16 px-4 flex flex-col items-center">
-      <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 mb-12 text-center">
-        Choose a Plan
-      </h1>
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16 lg:px-20 px-4 flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 mb-12 text-center">
+          Choose a Plan
+        </h1>
 
-      <div className="grid gap-10 md:grid-cols-3 w-full max-w-6xl">
-        {plans.map((plan, i) => (
-          <div
-            key={i}
-            className="bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-xl hover:scale-105 transform transition duration-300 border border-gray-200 text-center"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              {plan.name}
-            </h2>
-            <p className="text-3xl font-extrabold text-indigo-600 mb-2">
-              ₹{plan.price}
-            </p>
-            <p className="text-gray-500 text-sm mb-6">{plan.tokens} Tokens</p>
-            <button
-              onClick={() => handlePayment(plan)}
-              className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold hover:scale-105 transition shadow-lg"
+        <div className="grid gap-10 md:grid-cols-3 w-full max-w-6xl">
+          {plans.map((plan, i) => (
+            <div
+              key={i}
+              className="bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-xl hover:scale-105 transform transition duration-300 border border-gray-200 text-center"
             >
-              Buy Now
-            </button>
-          </div>
-        ))}
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {plan.name}
+              </h2>
+              <p className="text-3xl font-extrabold text-indigo-600 mb-2">
+                ₹{plan.price}
+              </p>
+              <p className="text-gray-500 text-sm mb-6">{plan.tokens} Tokens</p>
+              <button
+                onClick={() => handlePayment(plan)}
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold hover:scale-105 transition shadow-lg"
+              >
+                Buy Now
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
