@@ -314,6 +314,7 @@ export default function DashboardPage() {
     <>
       <Navbar />
       <div className="min-h-screen mx-auto px-4 lg:px-20 pt-20 max-w-[1400px]">
+        {/* <Chatbot /> */}
         {/* Decorative Elements */}
         <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10 ">
           <div className="absolute top-20 left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -343,7 +344,10 @@ export default function DashboardPage() {
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-3 rounded-2xl shadow-lg h-full">
               <Zap className="w-5 h-5" />
               <span className="font-semibold">
-                Tokens Remaining: <span className="bg-white text-green-600 p-1 rounded-lg">{userInfo?.tokens || 0}</span>
+                Tokens Remaining:{" "}
+                <span className="bg-white text-green-600 p-1 rounded-lg">
+                  {userInfo?.tokens || 0}
+                </span>
               </span>
               <UserButton />
             </div>
@@ -619,6 +623,11 @@ export default function DashboardPage() {
                 <InsightCard key={i} insight={insight} index={i} />
               ))}
             </div>
+          </div>
+          <div className="flex justify-center mt-12">
+            <button className="text-lg font-bold bg-violet-50 text-violet-700 px-3 py-1 rounded-full border border-violet-200 hover:bg-violet-100 transition items-center">
+              <Link href="/chat">Chat with InsightChat AI</Link>
+            </button>
           </div>
         </div>
       </div>
