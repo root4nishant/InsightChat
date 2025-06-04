@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/custom/Footer";
+import Navbar from "@/components/custom/nav";
 import {
   BarChart3,
   ChevronRight,
@@ -115,7 +116,8 @@ export default function DocsPage() {
 
   return (
     <>
-      <div className="min-h-screen px-4 lg:px-20 max-w-[1400px] mx-auto bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <Navbar />
+      <div className="min-h-screen px-4 lg:px-20 lg:pt-20 pt-10 max-w-[1400px] mx-auto bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Hero Section */}
           <div className="text-center mb-16 relative">

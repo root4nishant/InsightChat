@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/custom/Footer";
+import Navbar from "@/components/custom/nav";
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
@@ -246,7 +247,8 @@ export default function TermsOfServicePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-orange-100">
+      <Navbar />
+      <div className="min-h-screen lg:pt-20 pt-10 bg-gradient-to-br from-slate-50 via-red-50 to-orange-100">
         <div className="max-w-6xl mx-auto p-6">
           {/* Hero Section */}
           <div className="text-center mb-16 relative">
@@ -385,7 +387,9 @@ export default function TermsOfServicePage() {
                   clarification on any points, our legal team is here to help.
                 </p>
                 <Link
-                  href="mailto:connect@rootnishant.in" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  href="mailto:connect@rootnishant.in"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
                   Contact Legal Team
                   <Mail className="w-4 h-4 ml-2" />
                 </Link>
@@ -394,7 +398,7 @@ export default function TermsOfServicePage() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
